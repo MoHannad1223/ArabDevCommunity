@@ -1,0 +1,30 @@
+﻿using ArabDev.Data.DataOrEntities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ArabDev.Data.Contexts
+{
+    public class ArabDevDbContext : DbContext
+    {
+        public ArabDevDbContext(DbContextOptions<ArabDevDbContext> options) : base(options)
+        {
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //this Line For Configurations If Exists 
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
+        }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Skills> Skills { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<User_Learning>  User_Learnings { get; set; }
+        
+    }
+}
