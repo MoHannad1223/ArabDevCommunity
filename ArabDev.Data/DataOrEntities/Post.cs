@@ -19,7 +19,7 @@ namespace ArabDev.Data.DataOrEntities
 
         public List<string> Likes { get; set; } = new List<string>();
 
-       public string Img { get; set; }
+       public string Image { get; set; }
 
        public ICollection <Comment> Comments { get; set; } = new List<Comment>();
         [ForeignKey("CommentId")]

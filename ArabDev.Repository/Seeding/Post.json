@@ -1,0 +1,29 @@
+[
+    {
+        "Id": 1,
+        "Description": "This is a sample post description.",
+        "Title": "My First Post",
+        "PostDate": "2024-02-12T14:30:00Z",
+        "Likes": [ "User1", "User2", "User3" ],
+        "Image": "https://example.com/images/post1.jpg"
+    },
+    {
+        "Id": 2,
+        "Description": "This is a sample post description.",
+        "Title": "My second Post",
+        "PostDate": "2024-03-12T14:30:00Z",
+        "Likes": [ "User1", "User2", "User3" ],
+        "Image": "https://example.com/images/post2.jpg"
+    },
+    {
+        "Id": 3,
+        "Description": "This is a sample post description.",
+        "Title": "My third Post",
+        "PostDate": "2024-04-12T14:30:00Z",
+        "Likes": [ "User1", "User2", "User3" ],
+        "Image": "https://example.com/images/post3.jpg"
+    }
+
+
+
+]

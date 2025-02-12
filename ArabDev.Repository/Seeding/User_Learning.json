@@ -1,0 +1,15 @@
+[
+    {
+        "Id": 1,
+        "LearningNames": [ "Mathematics", "Physics", "Programming" ]
+    },
+    {
+        "Id": 2,
+        "LearningNames": [ "Mathematics", "Physics", "Programming" ]
+    },
+    {
+        "Id": 3,
+        "LearningNames": [ "Mathematics", "Physics", "Programming" ]
+    }
+
+]

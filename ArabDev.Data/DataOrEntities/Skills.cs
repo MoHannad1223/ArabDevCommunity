@@ -8,6 +8,6 @@ namespace ArabDev.Data.DataOrEntities
 {
    public class Skills:BaseEntity<int>
     {
-        public int SkillName { get; set; }
+        public List<string> SkillName { get; set; } = new List<string>();
     }
 }
