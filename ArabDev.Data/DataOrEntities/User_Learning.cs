@@ -8,6 +8,6 @@ namespace ArabDev.Data.DataOrEntities
 {
     public class User_Learning:BaseEntity<int>
     {
-        public int LearningName { get; set; }
+        public List<string> LearningNames { get; set; } = new List<string>();
     }
 }
