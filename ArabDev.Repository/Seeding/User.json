@@ -27,7 +27,7 @@
             "Street": "123 Main St",
             "City": "New York",
             "State": "NY",
-            "ZipCode": "10001",
+            "ZipCode": "10004",
             "Country": "USA"
         },
         "PhoneNumber": "01054546894",
@@ -65,7 +65,7 @@
             "Street": "123 Main St",
             "City": "New York",
             "State": "NY",
-            "ZipCode": "10001",
+            "ZipCode": "10003",
             "Country": "USA"
         },
         "PhoneNumber": "01025488497",
@@ -84,7 +84,7 @@
             "Street": "123 Main St",
             "City": "New York",
             "State": "NY",
-            "ZipCode": "10001",
+            "ZipCode": "1000",
             "Country": "USA"
         },
         "PhoneNumber": "01244596411",
