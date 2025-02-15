@@ -4,6 +4,7 @@ using ArabDev.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArabDev.Data.Migrations
 {
     [DbContext(typeof(ArabDevDbContext))]
-    partial class ArabDevDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250214193248_InitialCraete")]
+    partial class InitialCraete
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,12 +35,6 @@ namespace ArabDev.Data.Migrations
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("PodCastId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PodCastId1")
-                        .HasColumnType("int");
 
                     b.Property<int>("PostId")
                         .HasColumnType("int");
@@ -58,10 +55,6 @@ namespace ArabDev.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PodCastId");
-
-                    b.HasIndex("PodCastId1");
 
                     b.HasIndex("PostId");
 
@@ -117,12 +110,6 @@ namespace ArabDev.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PodCastId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PodCastId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("PostId")
                         .HasColumnType("int");
 
@@ -136,10 +123,6 @@ namespace ArabDev.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PodCastId");
-
-                    b.HasIndex("PodCastId1");
 
                     b.HasIndex("PostId");
 
@@ -176,12 +159,10 @@ namespace ArabDev.Data.Migrations
                     b.Property<int>("SenderId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReceiverId");
 
                     b.HasIndex("UserId");
 
@@ -206,27 +187,12 @@ namespace ArabDev.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PostId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PostId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PostId");
-
-                    b.HasIndex("PostId1");
-
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("Notifications");
                 });
@@ -470,30 +436,15 @@ namespace ArabDev.Data.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserId1");
 
                     b.ToTable("User_Learnings");
                 });
 
             modelBuilder.Entity("ArabDev.Data.DataOrEntities.Comment", b =>
                 {
-                    b.HasOne("ArabDev.Data.DataOrEntities.PodCast", "PodCast")
-                        .WithMany()
-                        .HasForeignKey("PodCastId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ArabDev.Data.DataOrEntities.PodCast", null)
-                        .WithMany("Comments")
-                        .HasForeignKey("PodCastId1");
-
                     b.HasOne("ArabDev.Data.DataOrEntities.Post", "Post")
                         .WithMany()
                         .HasForeignKey("PostId")
@@ -513,8 +464,6 @@ namespace ArabDev.Data.Migrations
                     b.HasOne("ArabDev.Data.DataOrEntities.User", null)
                         .WithMany("Comments")
                         .HasForeignKey("UserId1");
-
-                    b.Navigation("PodCast");
 
                     b.Navigation("Post");
 
@@ -538,16 +487,6 @@ namespace ArabDev.Data.Migrations
 
             modelBuilder.Entity("ArabDev.Data.DataOrEntities.Likes", b =>
                 {
-                    b.HasOne("ArabDev.Data.DataOrEntities.PodCast", "PodCast")
-                        .WithMany()
-                        .HasForeignKey("PodCastId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ArabDev.Data.DataOrEntities.PodCast", null)
-                        .WithMany("Likes")
-                        .HasForeignKey("PodCastId1");
-
                     b.HasOne("ArabDev.Data.DataOrEntities.Post", "Post")
                         .WithMany()
                         .HasForeignKey("PostId")
@@ -568,8 +507,6 @@ namespace ArabDev.Data.Migrations
                         .WithMany("Likes")
                         .HasForeignKey("UserId1");
 
-                    b.Navigation("PodCast");
-
                     b.Navigation("Post");
 
                     b.Navigation("Users");
@@ -579,38 +516,20 @@ namespace ArabDev.Data.Migrations
                 {
                     b.HasOne("ArabDev.Data.DataOrEntities.User", "User")
                         .WithMany()
-                        .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("ArabDev.Data.DataOrEntities.User", null)
-                        .WithMany("Messages")
-                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("ArabDev.Data.DataOrEntities.Notification", b =>
                 {
-                    b.HasOne("ArabDev.Data.DataOrEntities.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId");
-
-                    b.HasOne("ArabDev.Data.DataOrEntities.Post", null)
-                        .WithMany("Notifications")
-                        .HasForeignKey("PostId1");
-
                     b.HasOne("ArabDev.Data.DataOrEntities.User", "Users")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("ArabDev.Data.DataOrEntities.User", null)
-                        .WithMany("Notifications")
-                        .HasForeignKey("UserId1");
-
-                    b.Navigation("Post");
 
                     b.Navigation("Users");
                 });
@@ -698,23 +617,12 @@ namespace ArabDev.Data.Migrations
             modelBuilder.Entity("ArabDev.Data.DataOrEntities.User_Learning", b =>
                 {
                     b.HasOne("ArabDev.Data.DataOrEntities.User", "Users")
-                        .WithMany()
+                        .WithMany("User_Learnings")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ArabDev.Data.DataOrEntities.User", null)
-                        .WithMany("User_Learnings")
-                        .HasForeignKey("UserId1");
-
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("ArabDev.Data.DataOrEntities.PodCast", b =>
-                {
-                    b.Navigation("Comments");
-
-                    b.Navigation("Likes");
                 });
 
             modelBuilder.Entity("ArabDev.Data.DataOrEntities.Post", b =>
@@ -722,8 +630,6 @@ namespace ArabDev.Data.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Likes");
-
-                    b.Navigation("Notifications");
 
                     b.Navigation("Shares");
                 });
@@ -735,10 +641,6 @@ namespace ArabDev.Data.Migrations
                     b.Navigation("Followers");
 
                     b.Navigation("Likes");
-
-                    b.Navigation("Messages");
-
-                    b.Navigation("Notifications");
 
                     b.Navigation("Post");
 

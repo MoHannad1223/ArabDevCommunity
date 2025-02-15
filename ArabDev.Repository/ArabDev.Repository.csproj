@@ -7,19 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Seeding\User.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Seeding\User.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ArabDev.Data\ArabDev.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Seeding\" />
   </ItemGroup>
 
 </Project>

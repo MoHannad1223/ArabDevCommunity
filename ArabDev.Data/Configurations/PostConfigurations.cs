@@ -9,17 +9,14 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.Configurations
 {
-    public class SkillsConfiguration : IEntityTypeConfiguration<Skills>
+    public class PostConfigurations : IEntityTypeConfiguration<Post>
     {
-        public void Configure(EntityTypeBuilder<Skills> builder)
+        public void Configure(EntityTypeBuilder<Post> builder)
         {
-            builder.Property(s => s.SkillName).HasMaxLength(25);
-            builder.HasOne(U => U.Users)
-                .WithMany()
-                .HasForeignKey(U => U.UserId);
+            builder.HasOne(p => p.Users)
+                   .WithMany()
+                   .HasForeignKey(p => p.UserId)
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
-
-
-
 }

@@ -7,22 +7,17 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.DataOrEntities
 {
-    public class Comment:BaseEntity<int>
+   public class Likes:BaseEntity<int>
     {
        
-       public string Text{ get; set; }
-        public User User { get; set; }
+        public Post Post { get; set; }
+        public int PostId {  get; set; }
+        //---------------------------------
+        public User Users { get; set; }
         public int UserId { get; set; }
-        
-
-        public Post Post{ get; set; }
-         public int PostId { get; set; }
 
         public PodCast PodCast { get; set; }
         public int PodCastId { get; set; }
-       
-
-
 
 
 
