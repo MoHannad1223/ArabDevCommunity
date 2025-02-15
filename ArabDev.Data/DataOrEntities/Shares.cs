@@ -7,24 +7,15 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.DataOrEntities
 {
-    public class Comment:BaseEntity<int>
+  public class Shares:BaseEntity<int>
     {
-       
-       public string Text{ get; set; }
+        public DateTime ShareTime { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
         
 
-        public Post Post{ get; set; }
-         public int PostId { get; set; }
-
-        public PodCast PodCast { get; set; }
-        public int PodCastId { get; set; }
-       
-
-
-
-
-
+        public Post Post { get; set; }
+        public int PostId { get; set; }
+        
     }
 }

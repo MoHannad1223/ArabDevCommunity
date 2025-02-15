@@ -25,6 +25,15 @@ namespace ArabDev.Data.Contexts
         public DbSet<Skills> Skills { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<User_Learning>  User_Learnings { get; set; }
-        
+        public DbSet<Likes> Likes { get; set; }
+        public DbSet<Follower> Followers{ get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<PodCast> PodCasts { get; set; }
+        public DbSet<SavedPost> SavedPosts { get; set; }
+        public DbSet<Shares> Shares { get; set; }
+
+
+
     }
 }

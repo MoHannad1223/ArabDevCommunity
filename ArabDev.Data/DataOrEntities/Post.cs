@@ -11,20 +11,29 @@ namespace ArabDev.Data.DataOrEntities
     public class Post:BaseEntity<int>
     {
 
-        public string Describtion { get; set; }
+        public string? Describtion { get; set; }
 
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         public DateTime PostDate { get; set; }
 
-        public List<string> Likes { get; set; } = new List<string>();
+        public int? LikesCount { get; set; }
+        public int? CommentCount { get; set; }
 
-       public string Image { get; set; }
+        public List <string>? Images  { get; set; }= new List<string>();
 
-       public ICollection <Comment> Comments { get; set; } = new List<Comment>();
-        [ForeignKey("CommentId")]
-        public int CommentId { get; set; }
+        public User Users { get; set; }
+       
+        public int UserId { get; set; }
+
+        public ICollection<Likes> Likes { get; set; }=new List<Likes>();
+        public ICollection<Comment> Comments { get; set; }=new List<Comment>();
+        public ICollection<Shares> Shares { get; set; } = new List<Shares>();
+        public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
+
 
 
     }
 }
+
+

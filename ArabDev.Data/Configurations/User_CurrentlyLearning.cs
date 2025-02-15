@@ -9,17 +9,13 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.Configurations
 {
-    public class SkillsConfiguration : IEntityTypeConfiguration<Skills>
+    public class User_CurrentlyLearning : IEntityTypeConfiguration<User_Learning>
     {
-        public void Configure(EntityTypeBuilder<Skills> builder)
+        public void Configure(EntityTypeBuilder<User_Learning> builder)
         {
-            builder.Property(s => s.SkillName).HasMaxLength(25);
             builder.HasOne(U => U.Users)
-                .WithMany()
-                .HasForeignKey(U => U.UserId);
+                  .WithMany()
+                  .HasForeignKey(U => U.UserId); 
         }
     }
-
-
-
 }

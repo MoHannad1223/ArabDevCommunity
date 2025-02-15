@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.DataOrEntities
 {
-   public class Skills:BaseEntity<int>
+    public class Notification:BaseEntity<int>
     {
-        public List<string> SkillName { get; set; } = new List<string>();
+        public string Message { get; set; }
+        public bool IsRead { get; set; }
         public User Users { get; set; }
         public int UserId { get; set; }
+        public Post Post { get; set; }
+        public int? PostId { get; set; }
     }
 }
