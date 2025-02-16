@@ -16,6 +16,7 @@ namespace ArabDev.Data.Configurations
             builder.HasOne(P => P.Post)
                    .WithMany()
                    .HasForeignKey(P => P.PostId);
+
             builder.HasOne(U=>U.Users)
                    .WithMany()
                    .HasForeignKey(U => U.UserId);

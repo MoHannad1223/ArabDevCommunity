@@ -13,8 +13,14 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Post> builder)
         {
-            builder.HasOne(p => p.Users)
-                   .WithMany()
+            builder.Property(p => p.Title)
+                  .HasMaxLength(255);
+            builder.Property(p => p.Describtion)
+                   .HasMaxLength(2000);
+
+
+            builder.HasOne(p => p.User)
+                   .WithMany(u=>u.Posts)
                    .HasForeignKey(p => p.UserId)
                    .OnDelete(DeleteBehavior.NoAction);
         }

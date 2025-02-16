@@ -14,12 +14,15 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<Follower> builder)
         {
             builder.HasIndex(I=>I.Id).IsUnique();
-            builder.HasOne(U => U.User)
-                .WithMany()
-                .HasForeignKey(U => U.FollowerId);
-            builder.HasOne(U => U.User)
-                .WithMany()
-                .HasForeignKey(F => F.FollowingId);
+            builder.HasIndex(f => f.Id).IsUnique();
+
+            builder.HasOne(f => f.FollowingUser)
+             .WithMany()
+             .HasForeignKey(f => f.FollowingId);
+
+            builder.HasOne(f => f.FollowerUser)
+             .WithMany()
+             .HasForeignKey(f => f.FollowerId);
         }
     }
 }

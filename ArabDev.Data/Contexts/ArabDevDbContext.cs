@@ -1,4 +1,5 @@
-﻿using ArabDev.Data.DataOrEntities;
+﻿using ArabDev.Data.Configurations;
+using ArabDev.Data.DataOrEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,11 @@ namespace ArabDev.Data.Contexts
         public DbSet<User_Learning>  User_Learnings { get; set; }
         public DbSet<Likes> Likes { get; set; }
         public DbSet<Follower> Followers{ get; set; }
-        public DbSet<Message> Messages { get; set; }
+        public DbSet<ContactSubmission> ContactSubmission { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<PodCast> PodCasts { get; set; }
+        public DbSet<SavedPodcast> savedPodcasts { get; set; }
+
         public DbSet<SavedPost> SavedPosts { get; set; }
         public DbSet<Shares> Shares { get; set; }
 
