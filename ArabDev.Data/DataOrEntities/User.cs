@@ -10,10 +10,11 @@ namespace ArabDev.Data.DataOrEntities
 {
     public class User:BaseEntity<int>
     {
+        [Required]
 
-        
-        
         public string UserName { get; set; }
+        [Required]
+        [EmailAddress]
 
         public string Email { get; set; }
         [Required]
@@ -29,20 +30,21 @@ namespace ArabDev.Data.DataOrEntities
 
         public string Interests { get; set; }
 
-       
 
-      
-
-         public ICollection <Post> Post { get; set; }= new List<Post>();
+        // Navigation Properties
+        public ICollection <Post> Posts { get; set; }= new List<Post>();
         public ICollection<User_Learning> User_Learnings { get; set; } = new List<User_Learning>();
         public List<Follower> Followers { get; set; } = new List<Follower>();
         public ICollection<Skills> Skills { get; set; } = new List<Skills>();
         public ICollection<Likes> Likes { get; set; } = new List<Likes>();
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
         public ICollection<SavedPost> SavedPosts { get; set; } = new List<SavedPost>();
+        public ICollection<SavedPodcast> SavedPodcast { get; set; } = new List<SavedPodcast>();
+
         public ICollection<Shares> Shares { get; set; } = new List<Shares>();
         public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
-        public ICollection<Message> Messages { get; set; } = new List<Message>();
+        public ICollection<PodCast> PodCasts { get; set; } = new List<PodCast>();
+
 
 
 

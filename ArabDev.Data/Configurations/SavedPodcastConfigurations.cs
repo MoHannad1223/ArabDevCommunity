@@ -9,18 +9,20 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.Configurations
 {
-    public class SavedPostConfiguration : IEntityTypeConfiguration<SavedPost>
+    public class SavedPodcastConfigurations : IEntityTypeConfiguration<SavedPodcast>
     {
-        public void Configure(EntityTypeBuilder<SavedPost> builder)
+        public void Configure(EntityTypeBuilder<SavedPodcast> builder)
         {
-            builder.HasKey(sp => new { sp.UserId, sp.PostId });
+
+            builder.HasKey(sp => new { sp.UserId, sp.PodCastId });
 
             builder.HasOne(U => U.User)
                 .WithMany()
-                .HasForeignKey(P => P.UserId); 
-            builder.HasOne(P=>P.Post)
+                .HasForeignKey(sp => sp.UserId);
+
+            builder.HasOne(sp => sp.PodCast)
                 .WithMany()
-                .HasForeignKey(Post => Post.PostId);
+                .HasForeignKey(Post => Post.PodCastId);
 
         }
     }

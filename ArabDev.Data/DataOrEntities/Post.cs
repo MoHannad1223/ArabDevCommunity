@@ -21,8 +21,9 @@ namespace ArabDev.Data.DataOrEntities
         public int? CommentCount { get; set; }
 
         public List <string>? Images  { get; set; }= new List<string>();
+        [ForeignKey("UserId")]
 
-        public User Users { get; set; }
+        public User User { get; set; }
        
         public int UserId { get; set; }
 
