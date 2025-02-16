@@ -14,12 +14,11 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.Property(x => x.Id).UseIdentityColumn(1, 1);
-            builder.Property(x => x.UserName).IsRequired().HasMaxLength(20);
+            builder.Property(x => x.UserName).IsRequired().IsUnicode().HasMaxLength(20);
             builder.Property(x => x.Password).IsRequired();
             builder.HasIndex(x => x.Email).IsUnique();
 
 
-            //.OnDelete(DeleteBehavior.SetNull); ;
 
         }
     }
