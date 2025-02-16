@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.DataOrEntities
 {
-    public class SavedPodcast
+    public class SavedPodcast : BaseEntity<int>
     {
         public DateTime SavedTime { get; set; }
         public User User { get; set; }
