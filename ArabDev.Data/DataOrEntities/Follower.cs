@@ -9,7 +9,12 @@ namespace ArabDev.Data.DataOrEntities
 {
     public class Follower:BaseEntity<int>
     {
-        public User User { get; set; }
+        [ForeignKey("FollowerId")]
+        public User FollowerUser { get; set; }
+
+        [ForeignKey("FollowingId")]
+        public User FollowingUser { get; set; }
+
         public int FollowingId { get; set; }
         public int FollowerId { get; set; }
 

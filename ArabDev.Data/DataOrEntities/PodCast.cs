@@ -9,7 +9,11 @@ namespace ArabDev.Data.DataOrEntities
     public class PodCast:BaseEntity<int>
     {
         public  string  PodCastDetails { get; set; }
-        public List<string> PodCastUrl { get; set; }=new List<string>();
+        public ICollection<string> PodCastUrl { get; set; }=new List<string>();
+
+        public int UserId { get; set; } 
+        public User User { get; set; } 
+
 
         public ICollection<Likes> Likes { get; set; } = new List<Likes>();
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();

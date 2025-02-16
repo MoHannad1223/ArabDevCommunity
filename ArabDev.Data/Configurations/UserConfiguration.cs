@@ -16,9 +16,10 @@ namespace ArabDev.Data.Configurations
             builder.Property(x => x.Id).UseIdentityColumn(1, 1);
             builder.Property(x => x.UserName).IsRequired().HasMaxLength(20);
             builder.Property(x => x.Password).IsRequired();
-           
-                  
-                  //.OnDelete(DeleteBehavior.SetNull); ;
+            builder.HasIndex(x => x.Email).IsUnique();
+
+
+            //.OnDelete(DeleteBehavior.SetNull); ;
 
         }
     }
