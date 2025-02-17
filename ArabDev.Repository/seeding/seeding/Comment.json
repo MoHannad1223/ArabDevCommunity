@@ -1,0 +1,14 @@
+[
+    {
+        "Id": 1,
+        "Text": "This is a sample notification text."
+    },
+    {
+        "Id": 2,
+        "Text": "This is a sample notification text."
+    },
+    {
+        "Id": 3,
+        "Text": "This is a sample notification text."
+    }
+]

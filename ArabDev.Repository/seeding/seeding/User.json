@@ -1,0 +1,35 @@
+[{
+    "UserName": "mohanad",
+    "Email": "mohanedemam408@gmail.com",
+    "Password": "dcnjmnko",
+    "Address": "Tanat",
+    "PhoneNumber": "01025466485",
+    "Job": "Software Eng",
+    "PictureUrl": "",
+    "Interests": [ "Gaming", "Sport", "Coding" ]
+},
+    {
+        "UserName": "Esraa",
+        "Email": "Esraa428@gmail.com",
+        "Password": "dcnjmnko",
+        "Address": "Tanat",
+        "PhoneNumber": "01044687485",
+        "Job": "Software Eng",
+        "PictureUrl": "",
+
+        "Interests": [ "Gaming", "Sport", "Coding" ]
+    },
+    {
+        
+            "UserName": "Abdullah",
+            "Email": "Abdullah408@gmail.com",
+            "Password": "dcnjmnko",
+            "Address": "Tanat",
+            "PhoneNumber": "01128466485",
+            "Job": "Software Eng",
+            "PictureUrl": "",
+            "Interests": [ "Gaming", "Sport", "Coding" ]
+        
+    }
+
+]

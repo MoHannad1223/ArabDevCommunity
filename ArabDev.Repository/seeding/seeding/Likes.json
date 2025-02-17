@@ -1,0 +1,20 @@
+[
+    {
+
+        "Id": 1,
+        "interacting": [ "user1", "user2", "user3" ]
+
+    },
+    {
+
+        "Id": 2,
+        "interacting": [ "user1", "user2", "user3" ]
+
+    },
+    {
+
+        "Id": 3,
+        "interacting": [ "user1", "user2", "user3" ]
+
+    }
+]

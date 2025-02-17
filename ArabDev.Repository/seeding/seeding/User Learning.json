@@ -1,0 +1,28 @@
+{
+    "Usr_Learning": [
+        {
+            "Id": 1,
+            "learning_name": [
+                "Python",
+                "JavaScript",
+                "Machine Learning"
+            ]
+        },
+        {
+            "Id": 2,
+            "learning_name": [
+                "C++",
+                "Data Structures",
+                "Algorithms"
+            ]
+        },
+        {
+            "Id": 3,
+            "learning_name": [
+                "Java",
+                "Spring Boot",
+                "Microservices"
+            ]
+        }
+    ]
+}

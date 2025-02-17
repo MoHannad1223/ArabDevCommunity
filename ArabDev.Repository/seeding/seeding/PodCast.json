@@ -1,0 +1,27 @@
+[
+    {
+        "Id": 1,
+        "PodcastDetails": "Introduction to AI",
+        "PodcastUrl": [
+            "https://example.com/podcast1",
+            "https://example.com/podcast2"
+        ]
+    },
+    {
+        "Id": 2,
+        "PodcastDetails": "Advanced Machine Learning",
+        "PodcastUrl": [
+            "https://example.com/podcast3",
+            "https://example.com/podcast4"
+        ]
+    },
+    {
+        "Id": 3,
+        "PodcastDetails": "The Future of Technology",
+        "PodcastUrl": [
+            "https://example.com/podcast5",
+            "https://example.com/podcast6"
+        ]
+    }
+]
+

@@ -1,0 +1,29 @@
+[
+    {
+        "Id": 0,
+        "Describtion": "My First Post",
+        "Title": "Coding",
+        "PostDate": "YYYY-MM-DDTHH:MM:SSZ",
+        "LikesCount": 200,
+        "CommentCount": 12,
+        "Images": [ "", "", "" ]
+    },
+    {
+        "Id": 1,
+        "Describtion": "My Second  Post",
+        "Title": "Problem Solving",
+        "PostDate": "YYYY-MM-DDTHH:MM:SSZ",
+        "LikesCount": 205,
+        "CommentCount": 8,
+        "Images": [ "", "", "" ]
+    },
+    {
+        "Id": 2,
+        "Describtion": "My Third Post",
+        "Title": "Machine Learning",
+        "PostDate": "YYYY-MM-DDTHH:MM:SSZ",
+        "LikesCount": 185,
+        "CommentCount": 55,
+        "Images": [ "", "", "" ]
+    }
+]
