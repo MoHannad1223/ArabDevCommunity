@@ -16,13 +16,16 @@ namespace ArabDev.Data.Configurations
             builder.HasIndex(I=>I.Id).IsUnique();
             builder.HasIndex(f => f.Id).IsUnique();
 
+
             builder.HasOne(f => f.FollowingUser)
              .WithMany()
              .HasForeignKey(f => f.FollowingId);
-
+              
             builder.HasOne(f => f.FollowerUser)
              .WithMany()
-             .HasForeignKey(f => f.FollowerId);
+             .HasForeignKey(f => f.FollowerId)
+             .OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

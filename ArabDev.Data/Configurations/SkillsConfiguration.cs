@@ -14,13 +14,10 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<Skills> builder)
         {
             builder.Property(s => s.SkillName).HasMaxLength(25);
-            builder.Property(s => s.SkillName).UseIdentityColumn(1, 3);
+         
             builder.HasOne(U => U.Users)
                 .WithMany()
                 .HasForeignKey(U => U.UserId);
         }
     }
-
-
-
 }

@@ -9,7 +9,7 @@ namespace ArabDev.Data.DataOrEntities
 {
    public class Likes:BaseEntity<int>
     {
-       
+       public List<string> Interacting {  get; set; }=new List<string>();
         public Post Post { get; set; }
         public int PostId {  get; set; }
         //---------------------------------
