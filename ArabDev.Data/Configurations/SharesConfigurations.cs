@@ -13,13 +13,14 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Shares> builder)
         {
+            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
             builder.HasOne(S => S.User)
-                .WithMany(u => u.Shares)
-                .HasForeignKey(i => i.UserId);
+                .WithMany()
+                .HasForeignKey(S => S.UserId);
 
             builder.HasOne(P => P.Post)
-                .WithMany(p => p.Shares)
-                .HasForeignKey(i => i.PostId);
+                .WithMany()
+                .HasForeignKey(P => P.PostId);
         }
     }
 }

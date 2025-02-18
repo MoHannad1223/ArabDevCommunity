@@ -25,12 +25,13 @@ namespace ArabDev.Data.DataOrEntities
 
         public User User { get; set; }
        
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
 
         public ICollection<Likes> Likes { get; set; }=new List<Likes>();
         public ICollection<Comment> Comments { get; set; }=new List<Comment>();
         public ICollection<Shares> Shares { get; set; } = new List<Shares>();
         public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
+        public ICollection<SavedPost> SavedPosts { get; set; } = new List<SavedPost>();
 
 
 

@@ -13,6 +13,7 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<PodCast> builder)
         {
+           builder.Property(x => x.Id).UseIdentityColumn(1, 1);
             builder.HasOne(p => p.User) 
                 .WithMany(u => u.PodCasts)
                 .HasForeignKey(p => p.UserId)

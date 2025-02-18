@@ -13,7 +13,8 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            builder.Property(c => c.Text).IsUnicode().HasMaxLength(500);
+            builder.Property(x=>x.Id).UseIdentityColumn(1,1);
+            builder.Property(c => c.Text).HasMaxLength(500);
             builder.HasOne(U => U.User)
                    .WithMany()
                    .HasForeignKey(U => U.UserId);

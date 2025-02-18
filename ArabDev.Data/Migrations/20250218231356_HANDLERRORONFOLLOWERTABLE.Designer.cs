@@ -4,6 +4,7 @@ using ArabDev.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArabDev.Data.Migrations
 {
     [DbContext(typeof(ArabDevDbContext))]
-    partial class ArabDevDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250218231356_HANDLERRORONFOLLOWERTABLE")]
+    partial class HANDLERRORONFOLLOWERTABLE
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,14 +114,9 @@ namespace ArabDev.Data.Migrations
                     b.Property<int>("FollowedUserId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("FollowerUserId", "FollowedUserId");
 
                     b.HasIndex("FollowedUserId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Followers");
                 });
@@ -535,17 +533,21 @@ namespace ArabDev.Data.Migrations
 
             modelBuilder.Entity("ArabDev.Data.DataOrEntities.Follower", b =>
                 {
-                    b.HasOne("ArabDev.Data.DataOrEntities.User", "User")
-                        .WithMany()
+                    b.HasOne("ArabDev.Data.DataOrEntities.User", "FollowedUser")
+                        .WithMany("Followers")
                         .HasForeignKey("FollowedUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("ArabDev.Data.DataOrEntities.User", null)
-                        .WithMany("Followers")
-                        .HasForeignKey("UserId");
+                    b.HasOne("ArabDev.Data.DataOrEntities.User", "FollowerUser")
+                        .WithMany()
+                        .HasForeignKey("FollowerUserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("FollowedUser");
+
+                    b.Navigation("FollowerUser");
                 });
 
             modelBuilder.Entity("ArabDev.Data.DataOrEntities.Likes", b =>

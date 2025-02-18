@@ -13,14 +13,16 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<SavedPost> builder)
         {
-            builder.HasKey(sp => new { sp.UserId, sp.PostId });
+            
+            //builder.HasKey(sp => new { sp.UserId, sp.PostId ,sp.Id});
+            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
 
             builder.HasOne(U => U.User)
-                .WithMany()
-                .HasForeignKey(P => P.UserId); 
+                .WithMany(s=>s.SavedPosts)
+                .HasForeignKey(U => U.UserId); 
             builder.HasOne(P=>P.Post)
-                .WithMany()
-                .HasForeignKey(Post => Post.PostId);
+                .WithMany(s=>s.SavedPosts)
+                .HasForeignKey(P => P.PostId);
 
         }
     }

@@ -1,20 +1,23 @@
 [
     {
 
-        "Id": 1,
+       
         "Interacting": [ "user1", "user2", "user3" ]
+        
 
     },
     {
 
-        "Id": 2,
+        
         "Interacting": [ "user1", "user2", "user3" ]
+       
 
     },
     {
 
-        "Id": 3,
+        
         "Interacting": [ "user1", "user2", "user3" ]
+        
 
     }
 ]

@@ -13,6 +13,7 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Likes> builder)
         {
+            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
             builder.HasOne(P => P.Post)
                    .WithMany()
                    .HasForeignKey(P => P.PostId);

@@ -13,6 +13,7 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<ContactSubmission> builder)
         {
+            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
             builder.Property(c => c.Name).HasMaxLength(100).IsRequired();
             builder.Property(c => c.Email).HasMaxLength(255).IsRequired();
             builder.Property(c => c.Message).IsRequired();

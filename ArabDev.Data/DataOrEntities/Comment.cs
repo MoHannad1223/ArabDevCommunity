@@ -12,14 +12,14 @@ namespace ArabDev.Data.DataOrEntities
        
        public string Text{ get; set; }
         public User User { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         
 
         public Post Post{ get; set; }
-         public int PostId { get; set; }
+         public int? PostId { get; set; }
 
         public PodCast PodCast { get; set; }
-        public int PodCastId { get; set; }
+        public int? PodCastId { get; set; }
        
 
 

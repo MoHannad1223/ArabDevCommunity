@@ -13,18 +13,24 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Follower> builder)
         {
-            builder.HasIndex(I=>I.Id).IsUnique();
-            builder.HasIndex(f => f.Id).IsUnique();
+            builder.HasKey(f => new { f.FollowerUserId, f.FollowedUserId });
 
+            //// العلاقة بين المتابع والمتبع
+            //builder.HasOne(f => f.FollowerUser)
+            //       .WithMany()  // المستخدم يتابع العديد من المستخدمين
+            //       .HasForeignKey(f => f.FollowerUserId)
+            //       .OnDelete(DeleteBehavior.NoAction);  // حذف المتابعات عند حذف المستخدم
 
-            builder.HasOne(f => f.FollowingUser)
-             .WithMany()
-             .HasForeignKey(f => f.FollowingId);
-              
-            builder.HasOne(f => f.FollowerUser)
-             .WithMany()
-             .HasForeignKey(f => f.FollowerId)
-             .OnDelete(DeleteBehavior.NoAction);
+            //builder.HasOne(f => f.FollowedUser)
+            //       .WithMany()  // المستخدم لديه متابعين
+            //       .HasForeignKey(f => f.FollowedUserId)
+            //       .OnDelete(DeleteBehavior.NoAction);  // حذف المتابعين عند حذف المستخ
+            builder.HasOne(S => S.User)
+                   .WithMany()
+                   .HasForeignKey(x => x.FollowerUserId);
+            builder.HasOne(S => S.User)
+                  .WithMany()
+                  .HasForeignKey(x => x.FollowedUserId);
 
         }
     }

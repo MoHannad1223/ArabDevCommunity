@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.DataOrEntities
 {
-    public class Follower:BaseEntity<int>
+    public class Follower
     {
-        [ForeignKey("FollowerId")]
-        public User FollowerUser { get; set; }
+      public int FollowerUserId { get; set; }
+    public int FollowedUserId { get; set; } 
 
-        [ForeignKey("FollowingId")]
-        public User FollowingUser { get; set; }
+   
+    public User User { get; set; }
 
-        public int FollowingId { get; set; }
-        public int FollowerId { get; set; }
+    
+    //public User FollowedUser { get; set; }
+
+
 
     }
 }

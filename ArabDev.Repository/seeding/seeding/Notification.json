@@ -1,15 +1,18 @@
-[{"Id": 1,
-      "Message": "You have a new follower!",
-      "IsRead": false
+[
+    {
+        
+        "Message": "You have a new follower!",
+        "IsRead": false
     },
     {
-      "Id": 2,
-      "Message": "Your post received a new comment.",
-      "IsRead": true
+       
+        "Message": "Your post received a new comment.",
+        "IsRead": true
+       
     },
     {
-      "Id": 3,
-      "Message": "Reminder: Your scheduled event starts soon.",
-      "IsRead": false
+        
+        "Message": "Reminder: Your scheduled event starts soon.",
+        "IsRead": false
     }
-  ]
+]

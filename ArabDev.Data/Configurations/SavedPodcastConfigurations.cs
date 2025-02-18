@@ -14,15 +14,15 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<SavedPodcast> builder)
         {
 
-            // builder.HasKey(sp => new { sp.UserId, sp.PodCastId,sp.Id });
-
+            //builder.HasKey(sp => new { sp.UserId, sp.PodCastId,sp.Id });
+            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
             builder.HasOne(U => U.User)
-                .WithMany()
+                .WithMany(s=>s.SavedPodcast)
                 .HasForeignKey(U => U.UserId);
                // .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(sp => sp.PodCast)
-                .WithMany()
+                .WithMany(s=>s.SavedPodcasts)
                 .HasForeignKey(sp => sp.PodCastId);
                // .OnDelete(DeleteBehavior.NoAction) ;
 

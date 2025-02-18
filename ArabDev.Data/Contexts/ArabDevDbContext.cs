@@ -31,7 +31,7 @@ namespace ArabDev.Data.Contexts
         public DbSet<ContactSubmission> ContactSubmission { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<PodCast> PodCasts { get; set; }
-        public DbSet<SavedPodcast> savedPodcasts { get; set; }
+        public DbSet<SavedPodcast> SavedPodcasts { get; set; }
 
         public DbSet<SavedPost> SavedPosts { get; set; }
         public DbSet<Shares> Shares { get; set; }

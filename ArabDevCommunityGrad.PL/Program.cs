@@ -1,12 +1,14 @@
 
 using ArabDev.Data.Contexts;
+using ArabDev.Repository;
+using ArabDevCommunityGrad.PL.Helper;
 using Microsoft.EntityFrameworkCore;
 
 namespace ArabDevCommunityGrad.PL
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -17,19 +19,21 @@ namespace ArabDevCommunityGrad.PL
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
-            });
+            });//C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Comment.json
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+            await ApplySeeding.ApplySeedingAsync(app);
+          
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+                // Configure the HTTP request pipeline.
+                if (app.Environment.IsDevelopment())
+                {
+                    app.UseSwagger();
+                    app.UseSwaggerUI();
+                }
 
             app.UseHttpsRedirection();
 
