@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ArabDev.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class HANDLERRORONFOLLOWERTABLE : Migration
+    public partial class FixUserLearningForeignKeyAgain : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,7 +53,8 @@ namespace ArabDev.Data.Migrations
                 columns: table => new
                 {
                     FollowerUserId = table.Column<int>(type: "int", nullable: false),
-                    FollowedUserId = table.Column<int>(type: "int", nullable: false)
+                    FollowedUserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,10 +63,11 @@ namespace ArabDev.Data.Migrations
                         name: "FK_Followers_Users_FollowedUserId",
                         column: x => x.FollowedUserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Followers_Users_FollowerUserId",
-                        column: x => x.FollowerUserId,
+                        name: "FK_Followers_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -104,7 +106,6 @@ namespace ArabDev.Data.Migrations
                     CommentCount = table.Column<int>(type: "int", nullable: true),
                     Images = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<int>(type: "int", nullable: true),
-                    UserId1 = table.Column<int>(type: "int", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -115,11 +116,6 @@ namespace ArabDev.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Posts_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -128,9 +124,8 @@ namespace ArabDev.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SkillName = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    SkillName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<int>(type: "int", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -141,12 +136,7 @@ namespace ArabDev.Data.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Skills_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id");
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -157,7 +147,6 @@ namespace ArabDev.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LearningNames = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    UserId1 = table.Column<int>(type: "int", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -166,12 +155,6 @@ namespace ArabDev.Data.Migrations
                     table.ForeignKey(
                         name: "FK_User_Learnings_Users_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_User_Learnings_Users_UserId1",
-                        column: x => x.UserId1,
                         principalTable: "Users",
                         principalColumn: "Id");
                 });
@@ -210,13 +193,10 @@ namespace ArabDev.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Text = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: true),
                     PostId = table.Column<int>(type: "int", nullable: true),
                     PodCastId = table.Column<int>(type: "int", nullable: true),
-                    PodCastId1 = table.Column<int>(type: "int", nullable: true),
-                    PostId1 = table.Column<int>(type: "int", nullable: true),
-                    UserId1 = table.Column<int>(type: "int", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -226,32 +206,20 @@ namespace ArabDev.Data.Migrations
                         name: "FK_Comments_PodCasts_PodCastId",
                         column: x => x.PodCastId,
                         principalTable: "PodCasts",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Comments_PodCasts_PodCastId1",
-                        column: x => x.PodCastId1,
-                        principalTable: "PodCasts",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Comments_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Comments_Posts_PostId1",
-                        column: x => x.PostId1,
-                        principalTable: "Posts",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Comments_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Comments_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -264,9 +232,6 @@ namespace ArabDev.Data.Migrations
                     PostId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     PodCastId = table.Column<int>(type: "int", nullable: false),
-                    PodCastId1 = table.Column<int>(type: "int", nullable: true),
-                    PostId1 = table.Column<int>(type: "int", nullable: true),
-                    UserId1 = table.Column<int>(type: "int", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -279,32 +244,17 @@ namespace ArabDev.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Likes_PodCasts_PodCastId1",
-                        column: x => x.PodCastId1,
-                        principalTable: "PodCasts",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_Likes_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Likes_Posts_PostId1",
-                        column: x => x.PostId1,
-                        principalTable: "Posts",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_Likes_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Likes_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id");
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -317,8 +267,6 @@ namespace ArabDev.Data.Migrations
                     IsRead = table.Column<bool>(type: "bit", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     PostId = table.Column<int>(type: "int", nullable: true),
-                    PostId1 = table.Column<int>(type: "int", nullable: true),
-                    UserId1 = table.Column<int>(type: "int", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -328,23 +276,14 @@ namespace ArabDev.Data.Migrations
                         name: "FK_Notifications_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Notifications_Posts_PostId1",
-                        column: x => x.PostId1,
-                        principalTable: "Posts",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Notifications_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Notifications_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id");
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -384,8 +323,6 @@ namespace ArabDev.Data.Migrations
                     ShareTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     PostId = table.Column<int>(type: "int", nullable: false),
-                    PostId1 = table.Column<int>(type: "int", nullable: true),
-                    UserId1 = table.Column<int>(type: "int", nullable: true),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -398,21 +335,11 @@ namespace ArabDev.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Shares_Posts_PostId1",
-                        column: x => x.PostId1,
-                        principalTable: "Posts",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_Shares_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Shares_Users_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "Users",
-                        principalColumn: "Id");
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -421,19 +348,9 @@ namespace ArabDev.Data.Migrations
                 column: "PodCastId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_PodCastId1",
-                table: "Comments",
-                column: "PodCastId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Comments_PostId",
                 table: "Comments",
                 column: "PostId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Comments_PostId1",
-                table: "Comments",
-                column: "PostId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_UserId",
@@ -441,14 +358,14 @@ namespace ArabDev.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_UserId1",
-                table: "Comments",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Followers_FollowedUserId",
                 table: "Followers",
                 column: "FollowedUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Followers_UserId",
+                table: "Followers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Likes_PodCastId",
@@ -456,19 +373,9 @@ namespace ArabDev.Data.Migrations
                 column: "PodCastId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Likes_PodCastId1",
-                table: "Likes",
-                column: "PodCastId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Likes_PostId",
                 table: "Likes",
                 column: "PostId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Likes_PostId1",
-                table: "Likes",
-                column: "PostId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Likes_UserId",
@@ -476,29 +383,14 @@ namespace ArabDev.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Likes_UserId1",
-                table: "Likes",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Notifications_PostId",
                 table: "Notifications",
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Notifications_PostId1",
-                table: "Notifications",
-                column: "PostId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Notifications_UserId",
                 table: "Notifications",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Notifications_UserId1",
-                table: "Notifications",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PodCasts_UserId",
@@ -509,11 +401,6 @@ namespace ArabDev.Data.Migrations
                 name: "IX_Posts_UserId",
                 table: "Posts",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Posts_UserId1",
-                table: "Posts",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SavedPodcasts_PodCastId",
@@ -541,19 +428,9 @@ namespace ArabDev.Data.Migrations
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Shares_PostId1",
-                table: "Shares",
-                column: "PostId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Shares_UserId",
                 table: "Shares",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Shares_UserId1",
-                table: "Shares",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Skills_UserId",
@@ -561,19 +438,9 @@ namespace ArabDev.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Skills_UserId1",
-                table: "Skills",
-                column: "UserId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_User_Learnings_UserId",
                 table: "User_Learnings",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_User_Learnings_UserId1",
-                table: "User_Learnings",
-                column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",

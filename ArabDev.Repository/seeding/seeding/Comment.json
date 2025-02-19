@@ -1,16 +1,25 @@
 [
-    {
-        
-        "Text": "This is a sample notification text."
-    },
-    {
-        
-        "Text": "This is a sample notification text."
-        
-    },
-    {
-        
-        "Text": "This is a sample notification text."
-        
-    }
+  {
+
+    "Text": "This is a sample notification text.",
+    "UserId": 4,
+    "PostId": 10,
+      "PodCastId": null
+  },
+  {
+
+    "Text": "This is a sample notification text.",
+    "UserId": 4,
+    "PostId": null,
+    "PodCastId": 6
+
+  },
+  {
+
+    "Text": "This is a sample notification text.",
+    "UserId": 5,
+    "PostId": null,
+    "PodCastId": 7
+
+  }
 ]

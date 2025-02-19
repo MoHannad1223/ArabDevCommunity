@@ -13,10 +13,11 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<User_Learning> builder)
         {
-            builder.Property(x => x.Id).UseIdentityColumn(1, 1);
-            builder.HasOne(U => U.Users)
-                  .WithMany()
-                  .HasForeignKey(U => U.UserId); 
+            builder.HasOne(ul => ul.User)
+               .WithMany(u => u.User_Learnings) // تحديد العلاقة بين User و User_Learning
+               .HasForeignKey(ul => ul.UserId)  // تأكد من أن الـ Foreign Key هو UserId
+               .OnDelete(DeleteBehavior.NoAction);  // أو تغيير السلوك حسب الحاجة
+
         }
     }
 }

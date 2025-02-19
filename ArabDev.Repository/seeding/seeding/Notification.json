@@ -1,18 +1,24 @@
 [
-    {
-        
-        "Message": "You have a new follower!",
-        "IsRead": false
-    },
-    {
-       
-        "Message": "Your post received a new comment.",
-        "IsRead": true
-       
-    },
-    {
-        
-        "Message": "Reminder: Your scheduled event starts soon.",
-        "IsRead": false
-    }
+  {
+
+    "Message": "You have a new follower!",
+    "IsRead": false,
+    "UserId": 4,
+    "PostId": 10
+  },
+  {
+
+    "Message": "Your post received a new comment.",
+    "IsRead": true,
+    "UserId": 5,
+    "PostId": 11
+
+  },
+  {
+
+    "Message": "Reminder: Your scheduled event starts soon.",
+    "IsRead": false,
+    "UserId": 6,
+    "PostId": 12
+  }
 ]

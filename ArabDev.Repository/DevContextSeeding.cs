@@ -20,22 +20,23 @@ namespace ArabDev.Repository
                 {
                     //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\User.json
                     var usersdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/User.json");
-                    var user=JsonSerializer.Deserialize<List<User>> (usersdata);
-                    if (user is not null) 
+                    var user = JsonSerializer.Deserialize<List<User>>(usersdata);
+                    if (user is not null)
                     {
                         await context.Users.AddRangeAsync(user);
                     }
                 }
+            
                 if (context.Posts != null && !context.Posts.Any())
+            {
+                //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Post.json
+                var postsdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/Post.json");
+                var post = JsonSerializer.Deserialize<List<Post>>(postsdata);
+                if (post is not null)
                 {
-                    //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Post.json
-                    var postsdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/Post.json");
-                    var post = JsonSerializer.Deserialize<List<Post>>(postsdata);
-                    if (post is not null)
-                    {
-                        await context.Posts.AddRangeAsync(post);
-                    }
+                    await context.Posts.AddRangeAsync(post);
                 }
+            }
                 if (context.Skills != null && !context.Skills.Any())
                 {
                     //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Skills.json
@@ -58,8 +59,8 @@ namespace ArabDev.Repository
                 }
                 if (context.Shares != null && !context.Shares.Any())
                 {
-                    //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Share.json
-                    var sharesdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/Share.json");
+                    //c:\users\dell\downloads\arabdevcommunitygrad.pl\arabdev.repository\seeding\seeding\share.json
+                    var sharesdata = File.ReadAllText("../arabdev.repository/seeding/seeding/Share.json");
                     var share = JsonSerializer.Deserialize<List<Shares>>(sharesdata);
                     if (share is not null)
                     {
@@ -68,22 +69,12 @@ namespace ArabDev.Repository
                 }
                 if (context.SavedPosts != null && !context.SavedPosts.Any())
                 {
-               // C: \Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\SavedPost.json
-                var savedpostsdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/SavedPost.json");
+                    // C: \Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\SavedPost.json
+                    var savedpostsdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/SavedPost.json");
                     var savedpost = JsonSerializer.Deserialize<List<SavedPost>>(savedpostsdata);
                     if (savedpost is not null)
                     {
                         await context.SavedPosts.AddRangeAsync(savedpost);
-                    }
-                }
-                if (context.SavedPodcasts != null && !context.SavedPodcasts.Any())
-                {
-                    //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\SavedPodcast.json
-                    var savedpodcastdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/SavedPodcast.json");
-                    var savedpodcast = JsonSerializer.Deserialize<List<SavedPodcast>>(savedpodcastdata);
-                    if (savedpodcast is not null)
-                    {
-                        await context.SavedPodcasts.AddRangeAsync(savedpodcast);
                     }
                 }
                 if (context.PodCasts != null && !context.PodCasts.Any())
@@ -96,6 +87,17 @@ namespace ArabDev.Repository
                         await context.PodCasts.AddRangeAsync(podcast);
                     }
                 }
+                if (context.SavedPodcasts != null && !context.SavedPodcasts.Any())
+                {
+                    //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\SavedPodcast.json
+                    var savedpodcastdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/SavedPodcast.json");
+                    var savedpodcast = JsonSerializer.Deserialize<List<SavedPodcast>>(savedpodcastdata);
+                    if (savedpodcast is not null)
+                    {
+                        await context.SavedPodcasts.AddRangeAsync(savedpodcast);
+                    }
+                }
+
                 if (context.Notifications != null && !context.Notifications.Any())
                 {
                     //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Notification.json
@@ -126,7 +128,7 @@ namespace ArabDev.Repository
                         await context.ContactSubmission.AddRangeAsync(contact);
                     }
                 }
-                if (context.Comments!= null && !context.Comments.Any())
+                if (context.Comments != null && !context.Comments.Any())
                 {
                     //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Comment.json
                     var commentsdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/Comment.json");
@@ -148,8 +150,8 @@ namespace ArabDev.Repository
                 }
                 await context.SaveChangesAsync();
 
-            }
-            catch(Exception ex)
+        }
+            catch (Exception ex)
             {
                 var logger = loggerFactory.CreateLogger<ArabDevDbContext>();
                 logger.LogError(ex.Message);

@@ -10,7 +10,9 @@ namespace ArabDev.Data.DataOrEntities
     public class User_Learning:BaseEntity<int>
     {
         public List<string> LearningNames { get; set; } = new List<string>();
-        public User Users { get; set; }
+        [ForeignKey("UserId")]
+
+        public User User { get; set; }
       
         public int UserId { get; set; }
     }
