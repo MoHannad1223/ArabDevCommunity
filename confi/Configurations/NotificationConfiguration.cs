@@ -14,12 +14,16 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<Notification> builder)
         {
             builder.Property(x => x.Id).UseIdentityColumn(1, 1);
-            builder.HasOne(U => U.Users)
-                  .WithMany()
-                  .HasForeignKey(U => U.UserId);
-            builder.HasOne(P=>P.Post)
-                  .WithMany()
-                  .HasForeignKey(P => P.PostId);
+
+            builder.HasOne(n => n.Users)
+                   .WithMany(u => u.Notifications) // تأكد أن لديك ICollection<Notification> داخل User
+                   .HasForeignKey(n => n.UserId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(n => n.Post)
+                   .WithMany(p => p.Notifications) // تأكد أن لديك ICollection<Notification> داخل Post
+                   .HasForeignKey(n => n.PostId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

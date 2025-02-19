@@ -14,6 +14,7 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<Likes> builder)
         {
             builder.Property(x => x.Id).UseIdentityColumn(1, 1);
+<<<<<<< HEAD:confi/Configurations/LikesConfiguration.cs
             builder.HasOne(L => L.PodCast)
                 .WithMany(s=>s.Likes)
                 .HasForeignKey(L=>L.PodCastId)
@@ -28,6 +29,23 @@ namespace ArabDev.Data.Configurations
                    .HasForeignKey(U => U.UserId);
             
            
+=======
+
+            builder.HasOne(l => l.Users)
+                   .WithMany(u => u.Likes) // تأكد أن لديك ICollection<Likes> داخل User
+                   .HasForeignKey(l => l.UserId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(l => l.Post)
+                   .WithMany(p => p.Likes) // تأكد أن لديك ICollection<Likes> داخل Post
+                   .HasForeignKey(l => l.PostId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(l => l.PodCast)
+                   .WithMany(p => p.Likes) // تأكد أن لديك ICollection<Likes> داخل PodCast
+                   .HasForeignKey(l => l.PodCastId)
+                   .OnDelete(DeleteBehavior.Cascade);
+>>>>>>> b3f2ef277c6404ff85cb21a8c7215bafdb032eca:ArabDev.Data/Configurations/LikesConfiguration.cs
         }
     }
 }

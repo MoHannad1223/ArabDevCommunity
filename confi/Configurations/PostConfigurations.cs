@@ -21,7 +21,7 @@ namespace ArabDev.Data.Configurations
 
 
             builder.HasOne(p => p.User)
-                   .WithMany()
+                   .WithMany(u => u.Posts)
                    .HasForeignKey(p => p.UserId)
                    .OnDelete(DeleteBehavior.NoAction);
         }

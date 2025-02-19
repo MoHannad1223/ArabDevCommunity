@@ -1,15 +1,26 @@
 [
-    {
-       
-        "SavedTime": "2025-02-18T14:30:00"
-        
-    },
-    {
-        
-        "SavedTime": "2025-02-18T14:30:00"
-    },
-    {
-        
-        "SavedTime": "2025-02-18T14:30:00"
-    }
+  {
+
+    "SavedTime": "2025-02-18T14:30:00",
+    "UserId": 4,
+    "PodCastId": 7
+
+
+  },
+  {
+
+    "SavedTime": "2025-02-18T14:30:00",
+    "UserId": 5,
+    "PodCastId": 5
+
+
+  },
+  {
+
+    "SavedTime": "2025-02-18T14:30:00",
+    "UserId": 6,
+    "PodCastId": 6
+
+
+  }
 ]

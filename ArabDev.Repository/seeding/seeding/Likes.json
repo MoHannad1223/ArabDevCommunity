@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     {
         "Interacting": [ "Use1", "User2", "User2" ],
         "PodCastId": 1,
@@ -18,3 +19,33 @@
         "UserId": 2
     }
 ]
+=======
+  {
+
+
+    "Interacting": [ "user1", "user2", "user3" ],
+    "UserId": 4,
+    "PostId": 11,
+    "PodCastId": 6
+
+  },
+  {
+
+
+    "Interacting": [ "user1", "user2", "user3" ],
+    "UserId": 5,
+    "PostId": null,
+    "PodCastId": 6
+
+  },
+  {
+
+
+    "Interacting": [ "user1", "user2", "user3" ],
+    "UserId": 4,
+    "PostId": null,
+    "PodCastId": 6
+
+  }
+]
+>>>>>>> b3f2ef277c6404ff85cb21a8c7215bafdb032eca

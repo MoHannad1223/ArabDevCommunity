@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     {
         "Message": "You have a new notification.",
         "IsRead": false,
@@ -18,3 +19,28 @@
         "PostId": 1
     }
 ]
+=======
+  {
+
+    "Message": "You have a new follower!",
+    "IsRead": false,
+    "UserId": 4,
+    "PostId": 10
+  },
+  {
+
+    "Message": "Your post received a new comment.",
+    "IsRead": true,
+    "UserId": 5,
+    "PostId": 11
+
+  },
+  {
+
+    "Message": "Reminder: Your scheduled event starts soon.",
+    "IsRead": false,
+    "UserId": 6,
+    "PostId": 12
+  }
+]
+>>>>>>> b3f2ef277c6404ff85cb21a8c7215bafdb032eca

@@ -14,12 +14,17 @@ namespace ArabDev.Data.DataOrEntities
         public int PodCastId { get; set; }  
         
         public Post Post { get; set; }
-        public int PostId {  get; set; }
+        public int? PostId {  get; set; }
         //---------------------------------
         public User Users { get; set; }
         public int? UserId { get; set; }
 
+<<<<<<< HEAD
       
+=======
+        public PodCast PodCast { get; set; }
+        public int? PodCastId { get; set; }
+>>>>>>> b3f2ef277c6404ff85cb21a8c7215bafdb032eca
 
 
 

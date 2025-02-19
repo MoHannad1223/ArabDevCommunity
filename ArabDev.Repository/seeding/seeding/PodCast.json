@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     {
         
         "PodCastDetails": "Details of the first podcast",
@@ -25,5 +26,37 @@
         ],
         "UserId": null
     }
-]
+=======
+  {
 
+    "PodCastDetails": "Introduction to AI",
+    "PodcastUrl": [
+      "https://example.com/podcast1",
+      "https://example.com/podcast2"
+    ],
+    "UserId": 4
+
+  },
+  {
+
+    "PodCastDetails": "Advanced Machine Learning",
+    "PodcastUrl": [
+      "https://example.com/podcast3",
+      "https://example.com/podcast4"
+    ],
+    "UserId": 6
+
+  },
+  {
+
+
+    "PodCastDetails": "The Future of Technology",
+    "PodcastUrl": [
+      "https://example.com/podcast5",
+      "https://example.com/podcast6"
+    ],
+    "UserId": 5
+
+  }
+>>>>>>> b3f2ef277c6404ff85cb21a8c7215bafdb032eca
+]

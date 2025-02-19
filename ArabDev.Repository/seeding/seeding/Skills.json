@@ -1,28 +1,34 @@
 [
-    {
-       
-        "Skillname": [
-            "Problem Solving",
-            "Critical Thinking",
-            "Teamwork"
-        ]
-    },
-    {
-        
-        "Skillname": [
+  {
 
-            "Communication",
-            "Adaptability",
-            "Leadership"
-        ]
-    },
-    {
-        
-        "Skillname": [
-            "Time Management",
-            "Creativity",
-            "Work Ethic"
-        ]
-    }
-    
+    "Skillname": [
+      "Problem Solving",
+      "Critical Thinking",
+      "Teamwork"
+    ],
+    "UserId": 4
+
+  },
+  {
+
+    "Skillname": [
+
+      "Communication",
+      "Adaptability",
+      "Leadership"
+    ],
+    "UserId": 5
+
+  },
+  {
+
+    "Skillname": [
+      "Time Management",
+      "Creativity",
+      "Work Ethic"
+    ],
+    "UserId": 6
+
+  }
+
 ]
