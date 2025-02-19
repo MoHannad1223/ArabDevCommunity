@@ -20,8 +20,7 @@ namespace ArabDev.Data.DataOrEntities
         public int? UserId { get; set; }
 
 
-        public PodCast PodCast { get; set; }
-        public int? PodCastId { get; set; }
+        
 
 
 

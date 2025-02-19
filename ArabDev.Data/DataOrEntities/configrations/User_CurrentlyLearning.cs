@@ -14,7 +14,7 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<User_Learning> builder)
         {
             builder.Property(x => x.Id).ValueGeneratedOnAdd().UseIdentityColumn(1, 1);
-            builder.HasOne(U => U.Users)
+            builder.HasOne(U => U.User)
                   .WithMany()
                   .HasForeignKey(U => U.UserId); 
         }
