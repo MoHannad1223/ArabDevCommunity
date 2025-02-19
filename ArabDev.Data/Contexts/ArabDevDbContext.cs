@@ -1,4 +1,4 @@
-﻿using ArabDev.Data.Configurations;
+﻿//using ArabDev.Data.Configurations;
 using ArabDev.Data.DataOrEntities;
 using Microsoft.EntityFrameworkCore;
 using System;

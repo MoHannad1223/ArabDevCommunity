@@ -16,9 +16,9 @@ namespace ArabDev.Data.DataOrEntities
         public int? UserId { get; set; }
 
 
-        public ICollection<Likes> Likes { get; set; } = new List<Likes>();
-        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
-        public ICollection<SavedPodcast> SavedPodcasts { get; set; } = new List<SavedPodcast>();
+        public ICollection<Likes> Likes { get; set; }=new HashSet<Likes>();
+        public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
+        public ICollection<SavedPodcast> SavedPodcasts { get; set; } = new HashSet<SavedPodcast>();
 
 
     }

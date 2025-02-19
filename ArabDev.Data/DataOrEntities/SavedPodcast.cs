@@ -10,11 +10,14 @@ namespace ArabDev.Data.DataOrEntities
     public class SavedPodcast : BaseEntity<int>
     {
         public DateTime SavedTime { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
-         public int UserId { get; set; }
+        
 
-        public PodCast PodCast { get; set; }
         public int PodCastId { get; set; }
+        public PodCast PodCast { get; set; }
+       
+
         
        
 

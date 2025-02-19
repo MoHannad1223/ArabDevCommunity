@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.DataOrEntities
 {
-    public class Follower
+    public class Follower:BaseEntity<int>
     {
+        [NotMapped]
       public int FollowerUserId { get; set; }
+        [NotMapped]
     public int FollowedUserId { get; set; } 
 
    
-    public User User { get; set; }
+    public User UserFollower{ get; set; }
+        public User UserFollowed { get; set; }
 
-    
-    //public User FollowedUser { get; set; }
+
+        //public User FollowedUser { get; set; }
 
 
 

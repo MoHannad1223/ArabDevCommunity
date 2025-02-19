@@ -1,13 +1,3 @@
 [
-    {
-        "FollowerUserId": 1,
-        "FollowedUserId": 2
-
-
-    },
-    {
-        "FollowerUserId": 2,
-        "FollowedUserId": 1
-
-    }
+   
 ]

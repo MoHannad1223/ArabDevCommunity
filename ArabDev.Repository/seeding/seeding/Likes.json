@@ -1,23 +1,20 @@
 [
     {
-
-       
-        "Interacting": [ "user1", "user2", "user3" ]
-        
-
+        "Interacting": [ "Use1", "User2", "User2" ],
+        "PodCastId": 1,
+        "PostId": 2,
+        "UserId": null
     },
     {
-
-        
-        "Interacting": [ "user1", "user2", "user3" ]
-       
-
+        "Interacting": [ "Use1", "User2", "User2" ],
+        "PodCastId": 2,
+        "PostId": 3,
+        "UserId": 1
     },
     {
-
-        
-        "Interacting": [ "user1", "user2", "user3" ]
-        
-
+        "Interacting": [ "Use1", "User2", "User2" ],
+        "PodCastId": 1,
+        "PostId": 1,
+        "UserId": 2
     }
 ]

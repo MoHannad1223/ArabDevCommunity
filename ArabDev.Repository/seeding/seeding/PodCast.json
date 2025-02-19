@@ -1,28 +1,29 @@
 [
     {
-      
-        "PodcastDetails": "Introduction to AI",
-        "PodcastUrl": [
-            "https://example.com/podcast1",
-            "https://example.com/podcast2"
-        ]
+        
+        "PodCastDetails": "Details of the first podcast",
+        "PodCastUrl": [
+            "https://example.com/podcast/episode1",
+            "https://example.com/podcast/episode2"
+        ],
+        "UserId": 1
     },
     {
         
-        "PodcastDetails": "Advanced Machine Learning",
-        "PodcastUrl": [
-            "https://example.com/podcast3",
-            "https://example.com/podcast4"
-        ]
+        "PodCastDetails": "Details of the second podcast",
+        "PodCastUrl": [
+            "https://example.com/podcast/episode3",
+            "https://example.com/podcast/episode4"
+        ],
+        "UserId": 2
     },
     {
         
-
-        "PodcastDetails": "The Future of Technology",
-        "PodcastUrl": [
-            "https://example.com/podcast5",
-            "https://example.com/podcast6"
-        ]
+        "PodCastDetails": "Details of the third podcast",
+        "PodCastUrl": [
+            "https://example.com/podcast/episode5"
+        ],
+        "UserId": null
     }
 ]
 

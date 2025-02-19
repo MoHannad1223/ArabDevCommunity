@@ -1,18 +1,20 @@
 [
     {
-        
-        "Message": "You have a new follower!",
-        "IsRead": false
+        "Message": "You have a new notification.",
+        "IsRead": false,
+        "UserId": 1,
+        "PostId": 2
     },
     {
-       
-        "Message": "Your post received a new comment.",
-        "IsRead": true
-       
+        "Message": "Your post has been liked.",
+        "IsRead": true,
+        "UserId": 2,
+        "PostId": 3
     },
     {
-        
-        "Message": "Reminder: Your scheduled event starts soon.",
-        "IsRead": false
+        "Message": "Someone commented on your post.",
+        "IsRead": false,
+        "UserId": 2,
+        "PostId": 1
     }
 ]
