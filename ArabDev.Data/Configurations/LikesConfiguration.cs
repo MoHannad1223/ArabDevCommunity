@@ -14,17 +14,21 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<Likes> builder)
         {
             builder.Property(x => x.Id).UseIdentityColumn(1, 1);
-            builder.HasOne(P => P.Post)
-                   .WithMany()
-                   .HasForeignKey(P => P.PostId);
 
-            builder.HasOne(U=>U.Users)
-                   .WithMany()
-                   .HasForeignKey(U => U.UserId);
-            
-            builder.HasOne(L => L.PodCast)
-                .WithMany()
-                .HasForeignKey(L=>L.PodCastId);
+            builder.HasOne(l => l.Users)
+                   .WithMany(u => u.Likes) // تأكد أن لديك ICollection<Likes> داخل User
+                   .HasForeignKey(l => l.UserId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(l => l.Post)
+                   .WithMany(p => p.Likes) // تأكد أن لديك ICollection<Likes> داخل Post
+                   .HasForeignKey(l => l.PostId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(l => l.PodCast)
+                   .WithMany(p => p.Likes) // تأكد أن لديك ICollection<Likes> داخل PodCast
+                   .HasForeignKey(l => l.PodCastId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

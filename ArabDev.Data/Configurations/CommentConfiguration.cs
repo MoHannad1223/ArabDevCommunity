@@ -13,19 +13,21 @@ namespace ArabDev.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            builder.Property(x=>x.Id).UseIdentityColumn(1,1);
-            builder.Property(c => c.Text).HasMaxLength(500);
-            builder.HasOne(U => U.User)
-                   .WithMany()
-                   .HasForeignKey(U => U.UserId);
+            builder.HasOne(c => c.User)
+        .WithMany(u => u.Comments) // تأكد أن لديك ICollection<Comment> في User
+        .HasForeignKey(c => c.UserId)
+        .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(P => P.Post)
-                   .WithMany()
-                   .HasForeignKey(P=>P.PostId);
+            builder.HasOne(c => c.Post)
+                   .WithMany(p => p.Comments)
+                   .HasForeignKey(c => c.PostId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(C => C.PodCast)
-                .WithMany()
-                .HasForeignKey(C=>C.PodCastId);
+            builder.HasOne(c => c.PodCast)
+                   .WithMany(p => p.Comments)
+                   .HasForeignKey(c => c.PodCastId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

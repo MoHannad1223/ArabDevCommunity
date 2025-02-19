@@ -11,13 +11,13 @@ namespace ArabDev.Data.DataOrEntities
     {
        public List<string> Interacting {  get; set; }=new List<string>();
         public Post Post { get; set; }
-        public int PostId {  get; set; }
+        public int? PostId {  get; set; }
         //---------------------------------
         public User Users { get; set; }
         public int UserId { get; set; }
 
         public PodCast PodCast { get; set; }
-        public int PodCastId { get; set; }
+        public int? PodCastId { get; set; }
 
 
 

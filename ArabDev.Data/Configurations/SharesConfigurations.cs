@@ -14,13 +14,16 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<Shares> builder)
         {
             builder.Property(x => x.Id).UseIdentityColumn(1, 1);
-            builder.HasOne(S => S.User)
-                .WithMany()
-                .HasForeignKey(S => S.UserId);
 
-            builder.HasOne(P => P.Post)
-                .WithMany()
-                .HasForeignKey(P => P.PostId);
+            builder.HasOne(s => s.User)
+                   .WithMany(u => u.Shares) // تأكد أن لديك ICollection<Shares> داخل User
+                   .HasForeignKey(s => s.UserId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(s => s.Post)
+                   .WithMany(p => p.Shares) // تأكد أن لديك ICollection<Shares> داخل Post
+                   .HasForeignKey(s => s.PostId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

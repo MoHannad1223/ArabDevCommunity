@@ -14,11 +14,11 @@ namespace ArabDev.Data.Configurations
         public void Configure(EntityTypeBuilder<Skills> builder)
         {
             builder.Property(x => x.Id).UseIdentityColumn(1, 1);
-            builder.Property(s => s.SkillName).HasMaxLength(250);
-         
-            builder.HasOne(U => U.Users)
-                .WithMany()
-                .HasForeignKey(U => U.UserId);
+
+            builder.HasOne(s => s.Users)
+                   .WithMany(u => u.Skills) // تأكد أن لديك ICollection<Skills> داخل User
+                   .HasForeignKey(s => s.UserId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

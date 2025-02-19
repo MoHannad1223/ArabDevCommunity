@@ -1,5 +1,6 @@
 ﻿using ArabDev.Data.Contexts;
 using ArabDev.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace ArabDevCommunityGrad.PL.Helper
 {
@@ -14,6 +15,7 @@ namespace ArabDevCommunityGrad.PL.Helper
                 try
                 {
                     var context = services.GetRequiredService<ArabDevDbContext>();
+                    await context.Database.MigrateAsync();
                     await DevContextSeeding.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception ex)

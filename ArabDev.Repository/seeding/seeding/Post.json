@@ -1,31 +1,34 @@
 [
-    {
-       
-        "Describtion": "My First Post",
-        "Title": "Coding",
-        "PostDate": "2025-02-18T14:30:00",
-        "LikesCount": 200,
-        "CommentCount": 12,
-        "Images": [ "", "", "" ]
-       
-    },
-    {
-        
-        "Describtion": "My Second  Post",
-        "Title": "Problem Solving",
-        "PostDate": "2025-02-18T14:30:00",
-        "LikesCount": 205,
-        "CommentCount": 8,
-        "Images": [ "", "", "" ]
+  {
 
-    },
-    {
-       
-        "Describtion": "My Third Post",
-        "Title": "Machine Learning",
-        "PostDate": "2025-02-18T14:30:00",
-        "LikesCount": 185,
-        "CommentCount": 55,
-        "Images": [ "", "", "" ]
-    }
+    "Describtion": "My First Post",
+    "Title": "Coding",
+    "PostDate": "2025-02-18T14:30:00",
+    "LikesCount": 200,
+    "CommentCount": 12,
+    "Images": [ "", "", "" ],
+    "UserId": 4
+
+  },
+  {
+
+    "Describtion": "My Second  Post",
+    "Title": "Problem Solving",
+    "PostDate": "2025-02-18T14:30:00",
+    "LikesCount": 205,
+    "CommentCount": 8,
+    "Images": [ "", "", "" ],
+    "UserId": 5
+
+  },
+  {
+
+    "Describtion": "My Third Post",
+    "Title": "Machine Learning",
+    "PostDate": "2025-02-18T14:30:00",
+    "LikesCount": 185,
+    "CommentCount": 55,
+    "Images": [ "", "", "" ],
+    "UserId": 6
+  }
 ]
