@@ -26,17 +26,17 @@ namespace ArabDev.Repository
                         await context.Users.AddRangeAsync(user);
                     }
                 }
-            
+
                 if (context.Posts != null && !context.Posts.Any())
-            {
-                //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Post.json
-                var postsdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/Post.json");
-                var post = JsonSerializer.Deserialize<List<Post>>(postsdata);
-                if (post is not null)
                 {
-                    await context.Posts.AddRangeAsync(post);
+                    //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Post.json
+                    var postsdata = File.ReadAllText("../ArabDev.Repository/seeding/seeding/Post.json");
+                    var post = JsonSerializer.Deserialize<List<Post>>(postsdata);
+                    if (post is not null)
+                    {
+                        await context.Posts.AddRangeAsync(post);
+                    }
                 }
-            }
                 if (context.Skills != null && !context.Skills.Any())
                 {
                     //C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Skills.json
@@ -157,7 +157,7 @@ namespace ArabDev.Repository
                 logger.LogError(ex.Message);
                 if (ex.InnerException != null)
                 {
-                    Console.WriteLine($"InnerException: {ex.InnerException.Message}");
+                    Console.WriteLine($"InnerExceptionis: {ex.InnerException.Message}");
                 }
             }
             

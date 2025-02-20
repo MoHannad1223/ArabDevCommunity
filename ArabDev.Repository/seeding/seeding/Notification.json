@@ -3,22 +3,22 @@
 
     "Message": "You have a new follower!",
     "IsRead": false,
-    "UserId": 4,
-    "PostId": 10
+    "UserId": 7,
+    "PostId": 3
   },
   {
 
     "Message": "Your post received a new comment.",
     "IsRead": true,
-    "UserId": 5,
-    "PostId": 11
+    "UserId": 8,
+    "PostId": 4
 
   },
   {
 
     "Message": "Reminder: Your scheduled event starts soon.",
     "IsRead": false,
-    "UserId": 6,
-    "PostId": 12
+    "UserId": 9,
+    "PostId": 5
   }
 ]

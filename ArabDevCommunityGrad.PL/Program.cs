@@ -1,6 +1,8 @@
 
 using ArabDev.Data.Contexts;
 using ArabDev.Repository;
+using ArabDev.Repository.Interfaces;
+using ArabDev.Repository.Repositories;
 using ArabDevCommunityGrad.PL.Helper;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,8 +21,12 @@ namespace ArabDevCommunityGrad.PL
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
-            });//C:\Users\DELL\Downloads\ArabDevCommunityGrad.PL\ArabDev.Repository\seeding\seeding\Comment.json
+            });
+            builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+            
+            
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
