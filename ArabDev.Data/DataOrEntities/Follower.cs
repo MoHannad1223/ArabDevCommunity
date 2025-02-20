@@ -9,15 +9,14 @@ namespace ArabDev.Data.DataOrEntities
 {
     public class Follower
     {
-      public int FollowerUserId { get; set; }
-    public int FollowedUserId { get; set; } 
+        [ForeignKey("FollowerUser")]
+        public int FollowerUserId { get; set; }  // المستخدم الذي يقوم بالمتابعة
 
-   
-    public User User { get; set; }
+        [ForeignKey("FollowedUser")]
+        public int FollowedUserId { get; set; }  // المستخدم الذي يتم متابعته
 
-    
-    //public User FollowedUser { get; set; }
-
+        public User FollowerUser { get; set; }  // المستخدم المتابع
+        public User FollowedUser { get; set; }  // المستخدم المتابع له
 
 
     }

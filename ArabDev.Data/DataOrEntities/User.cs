@@ -34,7 +34,9 @@ namespace ArabDev.Data.DataOrEntities
         // Navigation Properties
         public ICollection <Post> Posts { get; set; }= new List<Post>();
         public ICollection<User_Learning> User_Learnings { get; set; } = new List<User_Learning>();
-        public ICollection <Follower> Followers { get; set; } = new List<Follower>();
+        public ICollection<Follower> Followers { get; set; } = new List<Follower>(); // الأشخاص الذين يتابعونني
+        public ICollection<Follower> Following { get; set; } = new List<Follower>(); // الأشخاص الذين أتابعهم
+
         public ICollection<Skills> Skills { get; set; } = new List<Skills>();
         public ICollection<Likes> Likes { get; set; } = new List<Likes>();
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();

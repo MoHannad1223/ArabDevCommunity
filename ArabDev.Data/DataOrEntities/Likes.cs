@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArabDev.Data.DataOrEntities
 {
+
    public class Likes:BaseEntity<int>
     {
        public List<string> Interacting {  get; set; }=new List<string>();
