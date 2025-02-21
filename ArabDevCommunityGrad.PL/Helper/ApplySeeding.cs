@@ -1,5 +1,8 @@
 ﻿using ArabDev.Data.Contexts;
+using ArabDev.Data.Identity;
 using ArabDev.Repository;
+using ArabDev.Repository.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ArabDevCommunityGrad.PL.Helper
@@ -16,6 +19,12 @@ namespace ArabDevCommunityGrad.PL.Helper
                 {
                     var context = services.GetRequiredService<ArabDevDbContext>();
                     await context.Database.MigrateAsync();
+
+                    var identityDbcontext = services.GetRequiredService<AppIdentityDbContext>();
+                    await identityDbcontext.Database.MigrateAsync();
+                    var UserManager = services.GetRequiredService<UserManager<AppUser>>();
+
+                    await AppIdentityDbContextSeed.SeedUserAsnc(UserManager,context);
                     await DevContextSeeding.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception ex)

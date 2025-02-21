@@ -1,11 +1,15 @@
 
 using ArabDev.Data.Contexts;
+using ArabDev.Data.Identity;
 using ArabDev.Repository;
+using ArabDev.Repository.Identity;
 using ArabDev.Repository.Interfaces;
 using ArabDev.Repository.Repositories;
 using ArabDev.Services.Services.Helper;
 using ArabDev.Services.Services.Users;
+using ArabDevCommunityGrad.PL.Extention;
 using ArabDevCommunityGrad.PL.Helper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ArabDevCommunityGrad.PL
@@ -24,6 +28,12 @@ namespace ArabDevCommunityGrad.PL
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
             });
+            builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
+
+            });
+            builder.Services.AddIdentityServices();
             builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
             builder.Services.AddScoped<IUserService,UserService>();
             builder.Services.AddAutoMapper(typeof(MappingProfile));
@@ -35,6 +45,7 @@ namespace ArabDevCommunityGrad.PL
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
             await ApplySeeding.ApplySeedingAsync(app);
           
 

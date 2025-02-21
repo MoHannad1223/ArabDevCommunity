@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArabDev.Data.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,6 +33,9 @@ namespace ArabDev.Data.DataOrEntities
 
 
         // Navigation Properties
+        public string AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
+
         public ICollection <Post> Posts { get; set; }= new List<Post>();
         public ICollection<User_Learning> User_Learnings { get; set; } = new List<User_Learning>();
         public ICollection <Follower> Followers { get; set; } = new List<Follower>();
