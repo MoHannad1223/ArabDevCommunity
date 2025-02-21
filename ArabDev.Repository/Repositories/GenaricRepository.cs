@@ -1,6 +1,7 @@
 ﻿using ArabDev.Data.Contexts;
 using ArabDev.Data.DataOrEntities;
 using ArabDev.Repository.Interfaces;
+using ArabDev.Repository.Specification;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,19 @@ namespace ArabDev.Repository.Repositories
 
         public void DeleteAsync(TEntity entity)
          => _context.Set<TEntity>().Remove(entity);
+
+        public async Task<TEntity> GetWithSpecificationByIdAsync(ISpecification<TEntity> spac)
+        => await ApplySpecification( spac).FirstOrDefaultAsync();
+
+
+            public async Task<IReadOnlyList<TEntity>> GetAllWithSpecificationAsync(ISpecification<TEntity> spac)
+        => await ApplySpecification(spac).ToListAsync();
+
+        private IQueryable<TEntity> ApplySpecification(ISpecification<TEntity> spac)
+                    => SpecificationEvaluator<TEntity, Tkey>.GetQuery(_context.Set<TEntity>(), spac);
+
+        public async Task<int> GetcountSpecificationAsync(ISpecification<TEntity> spac)
+       => await ApplySpecification(spac).CountAsync();
 
         //public async Task<TEntity> GetByIdAsNoTrackingAsync(Tkey? id)
         //=> await _context.Set<TEntity>().AsNoTracking().FindAsync(id);

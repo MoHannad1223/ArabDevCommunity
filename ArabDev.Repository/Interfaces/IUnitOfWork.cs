@@ -13,5 +13,6 @@ namespace ArabDev.Repository.Interfaces
         IGenaricRepository<TEntity, Tkey> Repository<TEntity, Tkey>() where TEntity : BaseEntity<Tkey>;
 
         Task<int> CompleteAync();
+        ValueTask DisposeAsync();
     }
 }

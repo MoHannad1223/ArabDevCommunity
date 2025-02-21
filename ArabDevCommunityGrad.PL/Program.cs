@@ -3,6 +3,8 @@ using ArabDev.Data.Contexts;
 using ArabDev.Repository;
 using ArabDev.Repository.Interfaces;
 using ArabDev.Repository.Repositories;
+using ArabDev.Services.Services.Helper;
+using ArabDev.Services.Services.Users;
 using ArabDevCommunityGrad.PL.Helper;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +25,8 @@ namespace ArabDevCommunityGrad.PL
 
             });
             builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+            builder.Services.AddScoped<IUserService,UserService>();
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
             
             
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -42,6 +46,7 @@ namespace ArabDevCommunityGrad.PL
                 }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 

@@ -17,15 +17,20 @@ namespace ArabDev.Repository.Repositories
 
         public UnitOfWork(ArabDevDbContext context)
         {
+            _repositories = new Hashtable();
             _context = context;
         }
         public async Task<int> CompleteAync()
-        =>await _context.SaveChangesAsync();
+        => await _context.SaveChangesAsync();
+
+        public ValueTask DisposeAsync()
+        =>_context.DisposeAsync();
+
+       
+
 
         public IGenaricRepository<TEntity, Tkey> Repository<TEntity, Tkey>() where TEntity : BaseEntity<Tkey>
         { 
-          if(_repositories is null)
-                _repositories = new Hashtable();
 
           var entitykey=typeof(TEntity).Name;//"key here is entityname"
             if (!_repositories.ContainsKey(entitykey))

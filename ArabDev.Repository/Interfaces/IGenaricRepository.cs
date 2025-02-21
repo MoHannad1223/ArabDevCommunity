@@ -1,4 +1,5 @@
 ﻿using ArabDev.Data.DataOrEntities;
+using ArabDev.Repository.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,18 @@ namespace ArabDev.Repository.Interfaces
   public  interface IGenaricRepository<TEntity,TKey> where TEntity :BaseEntity<TKey>
     {
         Task<TEntity> GetByIdAsync(TKey? id);
+        Task<TEntity> GetWithSpecificationByIdAsync(ISpecification<TEntity> spac);
 
-      //  Task<TEntity> GetByIdAsNoTrackingAsync(TKey? id);
+
+        //  Task<TEntity> GetByIdAsNoTrackingAsync(TKey? id);
 
         Task<TEntity> SearchByNameAsync(TKey? username);
         Task<IReadOnlyList<TEntity>> GetAllAsync();
+        Task<IReadOnlyList<TEntity>> GetAllWithSpecificationAsync(ISpecification<TEntity> spac);
+
 
         Task<IReadOnlyList<TEntity>> GetAllAsNoTrackingAsync();
+        Task<int> GetcountSpecificationAsync(ISpecification<TEntity> spac);
 
         Task AddAsync(TEntity entity);
 
